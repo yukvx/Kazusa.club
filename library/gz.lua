@@ -1,6 +1,5 @@
 --i give up
--- ily liam <3
-loadstring(game:HttpGet("https://raw.githubusercontent.com/liam0999/Drawing2/refs/heads/main/Drawing2.lua"))();
+loadstring(game:HttpGet("https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/library/drawing.lua"))();
 --
 local images = {
 ["hue"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/hue.png";
@@ -45,9 +44,9 @@ local library = {
     hovers = {},
     Relations = {},
     folders = {
-        main = "KauzC",
-        assets = "KauzC/Images",
-        configs = "KauzC/Configs"
+        main = "Kazusa.club",
+        assets = "Kazusa.club/Images",
+        configs = "Kazusa.club/Configs"
     },
     shared = {
         initialized = false,
