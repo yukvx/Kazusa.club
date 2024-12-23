@@ -28,6 +28,7 @@ local mouse = localplayer:GetMouse()
 local Remove = table.remove
 local Unpack = table.unpack
 local Find = table.find
+--
 local library = {
     drawings = {},
     objects = {},
@@ -41,9 +42,9 @@ local library = {
     hovers = {},
     Relations = {},
     folders = {
-        main = "Kazusa.club",
-        assets = "Kazusa.club/Images",
-        configs = "Kazusa.club/Configs"
+        main = "KauzC",
+        assets = "KauzC/Images",
+        configs = "KauzC/Configs"
     },
     shared = {
         initialized = false,
@@ -73,19 +74,21 @@ local utility = {
 }
 local pages = {}
 local sections = {}
+--local themes = {}
 local theme = {
+    accent = Color3.fromRGB(55, 175, 225),
+    lightcontrast = Color3.fromRGB(30, 30, 30),
+    darkcontrast = Color3.fromRGB(20, 20, 20),
     outline = Color3.fromRGB(0, 0, 0),
-    accent = Color3.fromRGB(58, 53, 88),
-    lighttext = Color3.fromRGB(207, 207, 207),
-    darktext = Color3.fromRGB(147, 147, 147),
-    lightcontrast = Color3.fromRGB(23, 23, 23),
-    cursoroutline = Color3.fromRGB(20, 20, 20),
-    darkcontrast = Color3.fromRGB(15, 15, 15),
-    textborder = Color3.fromRGB(20, 20, 20),
-    inline = Color3.fromRGB(28, 28, 28),    
+    inline = Color3.fromRGB(50, 50, 50),
+    textcolor = Color3.fromRGB(255, 255, 255),
+    textdark = Color3.fromRGB(175, 175, 175),
+    textborder = Color3.fromRGB(0, 0, 0),
+    cursoroutline = Color3.fromRGB(10, 10, 10),
     font = 2,
     textsize = 13
 }
+-- // utility Functions
 do
     function utility:Size(xScale,xOffset,yScale,yOffset,instance)
         if instance then
@@ -353,12 +356,12 @@ do
     function utility:LoadImage(instance, imageName, imageLink)
         local data
         --
-        if isfile(library.folders.assets.."/"..imageName..".kc") then
-            data = readfile(library.folders.assets.."/"..imageName..".kc")
+        if isfile(library.folders.assets.."/"..imageName..".png") then
+            data = readfile(library.folders.assets.."/"..imageName..".png")
         else
             if imageLink then
                 data = game:HttpGet(imageLink)
-                writefile(library.folders.assets.."/"..imageName..".kc", data)
+                writefile(library.folders.assets.."/"..imageName..".png", data)
             else
                 return
             end
@@ -452,7 +455,7 @@ do
         --
         theme.accent = accent
         --
-        local window = {pages = {}, loader = true, isVisible = false, pageammount = pageammount, callback = callback, wminfo = "$$$$$ Kazusa.club $$$$$ || UID : %u || Ping : %s || Fps : %u", currentPage = nil, fading = false, dragging = false, drag = Vector2.new(0,0), currentContent = {frame = nil, dropdown = nil, multibox = nil, colorpicker = nil, keybind = nil, textbox = nil}}
+        local window = {pages = {}, loader = true, isVisible = false, pageammount = pageammount, callback = callback, wminfo = "$$$$$ AntarcticaWare $$$$$ || UID : %u || Ping : %s || Fps : %u", currentPage = nil, fading = false, dragging = false, drag = Vector2.new(0,0), currentContent = {frame = nil, dropdown = nil, multibox = nil, colorpicker = nil, keybind = nil, textbox = nil}}
         --
         local main_frame = utility:Create("Frame", {Vector2.new(0,0)}, {
             Size = utility:Size(0, size.X, 0, size.Y),
@@ -3704,11 +3707,9 @@ do
                                 }, colorpicker.holder.drawings);colorpicker.holder.transparency_cursor[3] = colorpicker_open_transparency_cursor_color
                                 --
                                 utility:LoadImage(colorpicker_open_transparency_image, "transp", images["clrpTransBar"])
-                                --utility:LoadImage(colorpicker_open_transparency_image, "transp", "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradientbar.png")
                             end
                             --
                             utility:LoadImage(colorpicker_open_picker_image, "valsat", images["valsat"])
-                            --utility:LoadImage(colorpicker_open_picker_cursor, "valsat_cursor", "https://raw.githubusercontent.com/mvonwalk/splix-assets/main/Images-cursor.png") cant find the original </3
                             utility:LoadImage(colorpicker_open_huepicker_image, "hue", images["hue"])
                             --
                             window.currentContent.frame = colorpicker_open_inline
@@ -6080,7 +6081,6 @@ do
                         end
                         --
                         utility:LoadImage(colorpicker_open_picker_image, "valsat", images["valsat"])
-                        --utility:LoadImage(colorpicker_open_picker_cursor, "valsat_cursor", "https://raw.githubusercontent.com/mvonwalk/splix-assets/main/Images-cursor.png") cant find the original </3
                         utility:LoadImage(colorpicker_open_huepicker_image, "hue", images["hue"])
                         --
                         window.currentContent.frame = colorpicker_open_inline
@@ -6521,11 +6521,9 @@ do
                                 }, colorpicker.holder.drawings);colorpicker.holder.transparency_cursor[3] = colorpicker_open_transparency_cursor_color
                                 --
                                 utility:LoadImage(colorpicker_open_transparency_image, "transp", images["clrpTransBar"])
-                                --utility:LoadImage(colorpicker_open_transparency_image, "transp", "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradientbar.png") not being used..?
                             end
                             --
                             utility:LoadImage(colorpicker_open_picker_image, "valsat", images["valsat"])
-                            --utility:LoadImage(colorpicker_open_picker_cursor, "valsat_cursor", "https://raw.githubusercontent.com/mvonwalk/splix-assets/main/Images-cursor.png")
                             utility:LoadImage(colorpicker_open_huepicker_image, "hue", images["hue"])
                             --
                             window.currentContent.frame = colorpicker_open_inline
