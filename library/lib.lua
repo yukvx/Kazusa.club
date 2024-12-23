@@ -1,16 +1,19 @@
-loadstring(game:HttpGet(https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/library/drawing.lua))();
+--i give up
+-- ily liam <3
+loadstring(game:HttpGet("https://raw.githubusercontent.com/liam0999/Drawing2/refs/heads/main/Drawing2.lua"))();
 --
 local images = {
-["hue"] = "https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/assets/hue.png";
-["valsat"] = "https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/assets/valsat.png";
-["arrowup"] = "https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/assets/uparrow.png";
-["arrowdown"] = "https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/assets/downarrow.png";
-["clrptrans"] = "https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/assets/clrptrans.png";
-["clrpTransBar"] = "https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/assets/clrpTransBar.png";
+["hue"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/hue.png";
+["valsat"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/valsat.png";
+["arrowup"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/uparrow.png";
+["arrowdown"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/downarrow.png";
+["clrptrans"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/transThing.png";
+["clrpTransBar"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/clrpTransBar.png";
 --
-["gradient"] = "https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/assets/gradient0.png";
-["gradientR2L"] = "https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/assets/gradientR2L.png";
-["gradientdown"] = "https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/assets/gradient180.png"
+["gradient"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradient0.png";
+["gradientR2L"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradientR2L.png";
+["gradientL130"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradient(-130).png";
+["gradientdown"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradient180.png"
 }
 --
 local ws = game:GetService("Workspace")
