@@ -1,5 +1,3 @@
---i give up
-loadstring(game:HttpGet("https://raw.githubusercontent.com/yukvx/Kazusa.club/refs/heads/main/library/drawing.lua"))();
 --
 local images = {
 ["hue"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/hue.png";
@@ -11,7 +9,7 @@ local images = {
 --
 ["gradient"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradient0.png";
 ["gradientR2L"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradientR2L.png";
-["gradientL130"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradient(-130).png";
+["gradientN130"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradient(-130).png";
 ["gradientdown"] = "https://raw.githubusercontent.com/yukvx/robloxlol/refs/heads/main/gamesneeze/Assets/gradient180.png"
 }
 --
@@ -358,12 +356,12 @@ do
     function utility:LoadImage(instance, imageName, imageLink)
         local data
         --
-        if isfile(library.folders.assets.."/"..imageName..".png") then
-            data = readfile(library.folders.assets.."/"..imageName..".png")
+        if isfile(library.folders.assets.."/"..imageName..".Kzc") then
+            data = readfile(library.folders.assets.."/"..imageName..".Kzc")
         else
             if imageLink then
                 data = game:HttpGet(imageLink)
-                writefile(library.folders.assets.."/"..imageName..".png", data)
+                writefile(library.folders.assets.."/"..imageName..".Kzc", data)
             else
                 return
             end
@@ -2732,7 +2730,7 @@ do
         local options_avatar = utility:Create("Image", {Vector2.new(0,0), options_iconframe}, {
             Size = utility:Size(1, 0, 1, 0, options_iconframe),
             Position = utility:Position(0, 0, 0 , 0, options_iconframe),
-            Transparency = 0.8,
+            Transparency = 0.6,
             Visible = page.open
         }, playerList.visibleContent)
         --
@@ -2812,7 +2810,7 @@ do
             local button_gradient = utility:Create("Image", {Vector2.new(0,0), button_frame}, {
                 Size = utility:Size(1, 0, 1, 0, button_frame),
                 Position = utility:Position(0, 0, 0 , 0, button_frame),
-                Transparency = 0.5,
+                Transparency = 0.6,
                 Visible = page.open
             }, playerList.visibleContent)
             --
@@ -3016,7 +3014,7 @@ do
             playerList.buttons[#playerList.buttons + 1] = button
         end
         --
-        utility:LoadImage(list_gradient, "gradient", images["gradient"])
+        utility:LoadImage(list_gradient, "gradient", images["gradientdown"])
         --
         function playerList:GetSelection()
             for Index, Value in pairs(playerList.players) do
@@ -3269,7 +3267,7 @@ do
         local toggle__gradient = utility:Create("Image", {Vector2.new(0,0), toggle_frame}, {
             Size = utility:Size(1, 0, 1, 0, toggle_frame),
             Position = utility:Position(0, 0, 0 , 0, toggle_frame),
-            Transparency = 0.5,
+            Transparency = 0.6,
             Visible = page.open
         }, section.visibleContent)
         --
@@ -3288,7 +3286,7 @@ do
             Color = "textcolor"
         }
         --
-        utility:LoadImage(toggle__gradient, "gradient", images["gradient"])
+        utility:LoadImage(toggle__gradient, "gradient", images["gradientN130"])
         --
         function toggle:Get()
             return toggle.current
@@ -3404,14 +3402,14 @@ do
             local colorpicker__gradient = utility:Create("Image", {Vector2.new(0,0), colorpicker_frame}, {
                 Size = utility:Size(1, 0, 1, 0, colorpicker_frame),
                 Position = utility:Position(0, 0, 0 , 0, colorpicker_frame),
-                Transparency = 0.5,
+                Transparency = 0.6,
                 Visible = page.open
             }, section.visibleContent)
             --
             if transp then
                 utility:LoadImage(colorpicker__transparency, "cptransp", images["clrptrans"])
             end
-            utility:LoadImage(colorpicker__gradient, "gradient", images["gradient"])
+            utility:LoadImage(colorpicker__gradient, "gradient", images["gradientN130"])
             --
             function colorpicker:Set(color, transp_val)
                 if typeof(color) == "table" then
@@ -3855,7 +3853,7 @@ do
             local keybind__gradient = utility:Create("Image", {Vector2.new(0,0), keybind_frame}, {
                 Size = utility:Size(1, 0, 1, 0, keybind_frame),
                 Position = utility:Position(0, 0, 0 , 0, keybind_frame),
-                Transparency = 0.5,
+                Transparency = 0.6,
                 Visible = page.open
             }, section.visibleContent)
             --
@@ -4089,7 +4087,7 @@ do
                         local keybind__gradient = utility:Create("Image", {Vector2.new(0,0), modemenu_frame}, {
                             Size = utility:Size(1, 0, 1, 0, modemenu_frame),
                             Position = utility:Position(0, 0, 0 , 0, modemenu_frame),
-                            Transparency = 0.5,
+                            Transparency = 0.6,
                             Visible = page.open
                         }, keybind.modemenu.drawings)
                         --
@@ -4234,7 +4232,7 @@ do
         local slider__gradient = utility:Create("Image", {Vector2.new(0,0), slider_frame}, {
             Size = utility:Size(1, 0, 1, 0, slider_frame),
             Position = utility:Position(0, 0, 0 , 0, slider_frame),
-            Transparency = 0.5,
+            Transparency = 0.6,
             Visible = page.open
         }, section.visibleContent)
         --
@@ -4255,7 +4253,7 @@ do
             Color = "textcolor"
         }
         --
-        utility:LoadImage(slider__gradient, "gradient", images["gradient"])
+        utility:LoadImage(slider__gradient, "gradient", images["gradientR2L"])
         --
         function slider:Set(value)
             local oldval = slider.current
@@ -4362,7 +4360,7 @@ do
         local button_gradient = utility:Create("Image", {Vector2.new(0,0), button_frame}, {
             Size = utility:Size(1, 0, 1, 0, button_frame),
             Position = utility:Position(0, 0, 0 , 0, button_frame),
-            Transparency = 0.5,
+            Transparency = 0.6,
             Visible = page.open
         }, section.visibleContent)
         --
@@ -4470,7 +4468,7 @@ do
         local textbox_gradient = utility:Create("Image", {Vector2.new(0,0), textbox_frame}, {
             Size = utility:Size(1, 0, 1, 0, textbox_frame),
             Position = utility:Position(0, 0, 0 , 0, textbox_frame),
-            Transparency = 0.5,
+            Transparency = 0.6,
             Visible = page.open
         }, section.visibleContent)
         --
@@ -4660,7 +4658,7 @@ do
             local button_gradient = utility:Create("Image", {Vector2.new(0,0), button_frame}, {
                 Size = utility:Size(1, 0, 1, 0, button_frame),
                 Position = utility:Position(0, 0, 0 , 0, button_frame),
-                Transparency = 0.5,
+                Transparency = 0.6,
                 Visible = page.open
             }, section.visibleContent)
             --
@@ -4768,7 +4766,7 @@ do
         local dropdown__gradient = utility:Create("Image", {Vector2.new(0,0), dropdown_frame}, {
             Size = utility:Size(1, 0, 1, 0, dropdown_frame),
             Position = utility:Position(0, 0, 0 , 0, dropdown_frame),
-            Transparency = 0.5,
+            Transparency = 0.6,
             Visible = page.open
         }, section.visibleContent)
         --
@@ -5120,7 +5118,7 @@ do
         local multibox__gradient = utility:Create("Image", {Vector2.new(0,0), multibox_frame}, {
             Size = utility:Size(1, 0, 1, 0, multibox_frame),
             Position = utility:Position(0, 0, 0 , 0, multibox_frame),
-            Transparency = 0.5,
+            Transparency = 0.6,
             Visible = page.open
         }, section.visibleContent)
         --
@@ -5269,7 +5267,7 @@ do
                             local multibox_value_gradient = utility:Create("Image", {Vector2.new(0,0), multibox_value_frame}, {
                                 Size = utility:Size(1, 0, 1, 0, multibox_value_frame),
                                 Position = utility:Position(0, 0, 0 , 0, multibox_value_frame),
-                                Transparency = 0.5,
+                                Transparency = 0.6,
                                 Visible = page.open
                             }, multibox.holder.drawings)
                             --
@@ -5421,7 +5419,7 @@ do
         local keybind__gradient = utility:Create("Image", {Vector2.new(0,0), keybind_frame}, {
             Size = utility:Size(1, 0, 1, 0, keybind_frame),
             Position = utility:Position(0, 0, 0 , 0, keybind_frame),
-            Transparency = 0.5,
+            Transparency = 0.6,
             Visible = page.open
         }, section.visibleContent)
         --
@@ -5651,7 +5649,7 @@ do
                     local keybind__gradient = utility:Create("Image", {Vector2.new(0,0), modemenu_frame}, {
                         Size = utility:Size(1, 0, 1, 0, modemenu_frame),
                         Position = utility:Position(0, 0, 0 , 0, modemenu_frame),
-                        Transparency = 0.5,
+                        Transparency = 0.6,
                         Visible = page.open
                     }, keybind.modemenu.drawings)
                     --
@@ -5768,7 +5766,7 @@ do
         local colorpicker__gradient = utility:Create("Image", {Vector2.new(0,0), colorpicker_frame}, {
             Size = utility:Size(1, 0, 1, 0, colorpicker_frame),
             Position = utility:Position(0, 0, 0 , 0, colorpicker_frame),
-            Transparency = 0.5,
+            Transparency = 0.6,
             Visible = page.open
         }, section.visibleContent)
         --
@@ -5790,7 +5788,7 @@ do
         if transp then
             utility:LoadImage(colorpicker__transparency, "cptransp", images["clrptrans"])
         end
-        utility:LoadImage(colorpicker__gradient, "gradient", images["gradient"])
+        utility:LoadImage(colorpicker__gradient, "gradient", images["gradientN130"])
         --
         function colorpicker:Set(color, transp_val)
             if typeof(color) == "table" then
@@ -6226,14 +6224,14 @@ do
             local colorpicker__gradient = utility:Create("Image", {Vector2.new(0,0), colorpicker_frame}, {
                 Size = utility:Size(1, 0, 1, 0, colorpicker_frame),
                 Position = utility:Position(0, 0, 0 , 0, colorpicker_frame),
-                Transparency = 0.5,
+                Transparency = 0.6,
                 Visible = page.open
             }, section.visibleContent)
             --
             if transp then
                 utility:LoadImage(colorpicker__transparency, "cptransp", images["clrptrans"])
             end
-            utility:LoadImage(colorpicker__gradient, "gradient", images["gradient"])
+            utility:LoadImage(colorpicker__gradient, "gradient", images["gradientN130"])
             --
             function colorpicker:Set(color, transp_val)
                 if typeof(color) == "table" then
@@ -6686,7 +6684,7 @@ do
         local list_gradient = utility:Create("Image", {Vector2.new(0,0), list_frame}, {
             Size = utility:Size(1, 0, 1, 0, list_frame),
             Position = utility:Position(0, 0, 0 , 0, list_frame),
-            Transparency = 0.5,
+            Transparency = 0.6,
             Visible = page.open
         }, section.visibleContent)
         --
@@ -6710,7 +6708,7 @@ do
             list.buttons[i] = config_title
         end
         --
-        utility:LoadImage(list_gradient, "gradient", images["gradient"])
+        utility:LoadImage(list_gradient, "gradient", images["gradientdown"])
         --
         function list:UpdateScroll()
             if (#list.options - list.max) > 0 then
