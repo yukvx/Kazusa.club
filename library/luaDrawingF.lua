@@ -1,16 +1,16 @@
  -- https://raw.githubusercontent.com/mainstreamed/amongus-hook/refs/heads/main/assets/luaDrawingLibrary.lua
-
 local isScriptable = clonefunction(isscriptable);
 local setScriptable = clonefunction(setscriptable);
 local setScriptableCache = {};
 
 local textService = cloneref(game:GetService("TextService"));
+local coreGui = cloneref(game:GetService("CoreGui"));
 
 local drawing = {
 	Fonts = {
 		UI = 0,
-		System = 2,
-		Plex = 1,
+		System = 1,
+		Plex = 2,
 		Monospace = 3
 	}
 };
@@ -36,7 +36,20 @@ local _vector2new = clonefunction(renv.Vector2.new);
 local _destroy = clonefunction(game.Destroy);
 local _gettextboundsasync = clonefunction(textService.GetTextBoundsAsync);
 local _httpget = clonefunction(game.HttpGet);
-local _writecustomasset = writecustomasset and clonefunction(writecustomasset);
+local _writecustomasset = newcclosure(function(path, data)
+    local directory = "Kazusa.club/Images/"
+    if not isfolder(directory) then
+        makefolder(directory)
+    end
+    local fullPath = directory .. path
+    if isfile(fullPath) then
+        return getcustomasset(fullPath)
+    else
+        writefile(fullPath, data)
+        return getcustomasset(fullPath)
+    end
+end)
+
 local _protectinstance = protectinstance and clonefunction(protectinstance);
 
 local function create(className, properties, children)
@@ -57,12 +70,13 @@ local function create(className, properties, children)
 	inst.Parent = properties.Parent;
 	return inst;
 end
-do
+
+do -- This may look completely useless, but it allows TextBounds to update without yielding and therefore breaking the metamethods.
 	local fonts = {
 		Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
 		Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
-		Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
-		Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+		Font.new("rbxasset://fonts/families/RobotoMono.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+		Font.new("rbxasset://fonts/families/RobotoMono.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 	};
 
 	for i, v in fonts do
@@ -83,6 +97,7 @@ do
 		Parent = gethui(),
 		ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 	});
+
 
 	local function updatePosition(frame, from, to, thickness)
 		local central = (from + to) / 2;
@@ -308,8 +323,8 @@ do
 		local enumToFont = {
 			[drawing.Fonts.UI] = Font.new("rbxasset://fonts/families/Arial.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
 			[drawing.Fonts.System] = Font.new("rbxasset://fonts/families/HighwayGothic.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
-			[drawing.Fonts.Plex] = Font.new("rbxasset://fonts/families/Roboto.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
-			[drawing.Fonts.Monospace] = Font.new("rbxasset://fonts/families/Ubuntu.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
+			[drawing.Fonts.Plex] = Font.new("rbxasset://fonts/families/RobotoMono.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal),
+			[drawing.Fonts.Monospace] = Font.new("rbxasset://fonts/families/RobotoMono.json", Enum.FontWeight.Regular, Enum.FontStyle.Normal)
 		};
 
 		local text = {};
@@ -644,9 +659,9 @@ do
 		end
 
 		function image:_newImage(data, isUri)
-			_taskspawn(function()
+			_taskspawn(function() -- this is fucked but u can't yield in a metamethod
 				self._imageId = self._imageId + 1;
-				local path = _stringformat("%s-%s.png", self._id, self._imageId);
+				local path = _stringformat("%s-%s.kzc", self._id, self._imageId);
 				if isUri then
 					local newData;
 					while newData == nil do
@@ -754,6 +769,7 @@ do
 					frame._line2.BackgroundColor3 = v;
 					frame._line3.BackgroundColor3 = v;
 				elseif k == "Filled" then
+					-- TODO
 				elseif k == "PointA" then
 					self:_updateVertices({
 						{ frame._line1, props.PointA, props.PointB },
@@ -917,6 +933,7 @@ do
 					frame._line3.BackgroundColor3 = v;
 					frame._line4.BackgroundColor3 = v;
 				elseif k == "Filled" then
+					-- TODO
 				elseif k == "PointA" then
 					self:_updateVertices({
 						{ frame._line1, props.PointA, props.PointB },
@@ -1035,3 +1052,4 @@ genv.setrenderproperty = newcclosure(function(x, y, z)
 end);
 
 genv.drawingLoaded = true;
+
